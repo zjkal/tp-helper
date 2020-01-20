@@ -22,7 +22,7 @@ class Id
             throw  new \Exception('key must be a number');
         }
         //追加的混淆长度
-        $length = config('al.helper.Id.lenght') ?: '5';
+        $length = config('al.helper.id.length') ?: '5';
 
         $tmp1 = round(decoct($key) * decbin($key) / pi());
         $tmp2 = substr($tmp1, -1, $length);
@@ -38,7 +38,7 @@ class Id
     public static function id2key($id)
     {
         //追加的混淆长度
-        $length = config('al.helper.Id.lenght') ?: '5';
+        $length = config('al.helper.id.length') ?: '5';
 
         if (strlen($id) <= $length) {
             throw new \Exception('ID length is too short');
