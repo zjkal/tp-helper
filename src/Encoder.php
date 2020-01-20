@@ -10,6 +10,8 @@ namespace al\helper;
 class Encoder
 {
 
+    private static $key = 'ykmaiz'; //默认秘钥
+
     /**
      * 加密
      * @param string $data 要加密的字符串
@@ -17,7 +19,7 @@ class Encoder
      */
     public static function encode($data)
     {
-        $key = config('my.helper.encode.key') ?: 'ykmaiz';
+        $key = config('my.helper.encode.key') ?: self::$key;
 
         $data = strval($data);
         $key = strval($key);
@@ -52,7 +54,7 @@ class Encoder
      */
     public static function decode($data)
     {
-        $key = config('my.helper.encode.key') ?: 'ykmaiz';
+        $key = config('my.helper.encode.key') ?: self::$key;
 
         $data = strval($data);
 

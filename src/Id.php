@@ -10,6 +10,8 @@ namespace al\helper;
  */
 class Id
 {
+    private static $length = 5; //默认的追加长度
+
     /**
      * 把数据自增主键转换为ID
      * @param int $key 数据库自增ID
@@ -22,7 +24,7 @@ class Id
             throw  new \Exception('key must be a number');
         }
         //追加的混淆长度
-        $length = config('al.helper.id.length') ?: '5';
+        $length = config('al.helper.id.length') ?: self::$length;
 
         $tmp1 = round(decoct($key) * decbin($key) / pi());
         $tmp2 = substr($tmp1, -1, $length);
@@ -38,7 +40,7 @@ class Id
     public static function id2key($id)
     {
         //追加的混淆长度
-        $length = config('al.helper.id.length') ?: '5';
+        $length = config('al.helper.id.length') ?: self::$length;;
 
         if (strlen($id) <= $length) {
             throw new \Exception('ID length is too short');
