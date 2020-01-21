@@ -10,7 +10,7 @@ namespace al\helper;
 class Encoder
 {
 
-    private static $key = 'ykmaiz'; //默认秘钥
+    private static $DEFAULT_KEY = 'ykmaiz'; //默认秘钥
 
     /**
      * 加密
@@ -19,7 +19,7 @@ class Encoder
      */
     public static function encode($data)
     {
-        $key = config('my.helper.encode.key') ?: self::$key;
+        $key = function_exists('config') && config('my.tp-helper.encode.key') ?: self::$DEFAULT_KEY;
 
         $data = strval($data);
         $key = strval($key);
@@ -54,7 +54,7 @@ class Encoder
      */
     public static function decode($data)
     {
-        $key = config('my.helper.encode.key') ?: self::$key;
+        $key = function_exists('config') && config('my.tp-helper.encode.key') ?: self::$DEFAULT_KEY;
 
         $data = strval($data);
 

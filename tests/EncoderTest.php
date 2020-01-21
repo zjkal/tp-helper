@@ -1,8 +1,4 @@
 <?php
-/**
- * AL加密测试类
- */
-
 require '../vendor/autoload.php';
 
 $str = 'a test string';
