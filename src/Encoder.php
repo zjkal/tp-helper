@@ -19,7 +19,7 @@ class Encoder
      */
     public static function encode($data)
     {
-        $key = function_exists('config') && config('my.tp-helper.encode.key') ?: self::$DEFAULT_KEY;
+        $key = function_exists('config') && config('my.tp-helper.encode-key') ?: self::$DEFAULT_KEY;
 
         $data = strval($data);
         $key = strval($key);
@@ -54,7 +54,7 @@ class Encoder
      */
     public static function decode($data)
     {
-        $key = function_exists('config') && config('my.tp-helper.encode.key') ?: self::$DEFAULT_KEY;
+        $key = function_exists('config') && config('my.tp-helper.encode-key') ?: self::$DEFAULT_KEY;
 
         $data = strval($data);
 
