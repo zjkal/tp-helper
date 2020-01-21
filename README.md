@@ -8,7 +8,7 @@ composer require zjkal/tp-helper
 
 ### 方法说明
 1. 字符串可逆加密
-    1. 用法
+    * 用法
     ```
    use al\helper\Encoder;
    
@@ -18,7 +18,7 @@ composer require zjkal/tp-helper
    //解密方法
    echo Encoder::decode($str);
     ```
-    2. 配置  
+    * 配置  
     可以配置加密和解密的秘钥,默认为ykmaiz,在config目录下的my.php(如果没有就新建一个)中增加以下代码:
     ```
    'tp-helper' => [
@@ -26,7 +26,7 @@ composer require zjkal/tp-helper
     ]
     ```
 2. 对数据自增主键进行追加长度的混淆
-    1. 用法
+    * 用法
     ```php
    use al\helper\Id;
    
@@ -36,7 +36,7 @@ composer require zjkal/tp-helper
    //把ID还原为数据自增主键
    echo Id::id2key($id);
     ```
-   2. 配置  
+   * 配置  
    可以配置追加的长度,默认为5,在config目录下的my.php(如果没有就新建一个)中增加以下代码:
    ```
    'tp-helper' => [
