@@ -19,11 +19,9 @@ composer require zjkal/tp-helper
    echo Encoder::decode($str);
     ```
     * 配置  
-    可以配置加密和解密的秘钥,默认为ykmaiz,在config目录下的my.php(如果没有就新建一个)中增加以下代码:
+    可以配置加密和解密的秘钥,默认为ykmaiz,在config目录下的al.php(如果没有就新建一个)中增加以下代码:
     ```
-   'tp-helper' => [
-       'encode-key'=> 'ykmaiz'
-    ]
+    'encoder-key'=> 'ykmaiz'
     ```
 2. 对数据自增主键进行追加长度的混淆
     * 用法
@@ -37,9 +35,7 @@ composer require zjkal/tp-helper
    echo Id::id2key($id);
     ```
    * 配置  
-   可以配置追加的长度,默认为5,在config目录下的my.php(如果没有就新建一个)中增加以下代码:
+   可以配置追加的长度,默认为5,在config目录下的al.php(如果没有就新建一个)中增加以下代码:
    ```
-   'tp-helper' => [
-     'id-length'=> 5
-   ]
+   'id-length'=> 5
    ```
