@@ -4,7 +4,7 @@
 namespace al\helper;
 
 /**
- * 对数据自增主键进行追加长度的混淆类
+ * 对数字ID进行追加长度的混淆类
  * Class Id
  * @package al\helper
  */
@@ -13,12 +13,12 @@ class Id
     private static $DEFAULT_LENGTH = 5; //默认的追加长度
 
     /**
-     * 把数据自增主键转换为ID
+     * 给ID添加混淆后缀
      * @param int $key 数据库自增ID
      * @return int  转换后的ID
      * @throws \Exception
      */
-    public static function key2id($key)
+    public static function encode($key)
     {
         if (!is_numeric($key)) {
             throw  new \InvalidArgumentException('Param key must be a number');
@@ -33,12 +33,12 @@ class Id
     }
 
     /**
-     * 把ID还原为数据自增主键
+     * 验证混淆后缀,并还原ID
      * @param int $id 转换后的ID
      * @return int 数据库自增ID
      * @throws \Exception
      */
-    public static function id2key($id)
+    public static function decode($id)
     {
         //追加的混淆长度
         $length = function_exists('config') && config('al.id-length') ?: self::$DEFAULT_LENGTH;
@@ -49,7 +49,7 @@ class Id
 
         $tmp = substr($id, 0, -$length);
 
-        if (self::key2id($tmp) != $id) {
+        if (self::encode($tmp) != $id) {
             throw  new \InvalidArgumentException('Invalid id');
         } else {
             return $tmp;

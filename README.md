@@ -13,29 +13,37 @@ composer require zjkal/tp-helper
    use al\helper\Encoder;
    
    //加密方法
-   $str = Encoder::encode('test string');
+   Encoder::encode('raw string');
    
    //解密方法
-   echo Encoder::decode($str);
+   Encoder::decode('encoded string');
     ```
     * 配置  
     可以配置加密和解密的秘钥,默认为ykmaiz,在config目录下的al.php(如果没有就新建一个)中增加以下代码:
     ```
     'encoder-key'=> 'ykmaiz'
     ```
-2. 对数据自增主键进行追加长度的混淆
+2. 对数字ID进行追加长度的混淆类
     * 用法
     ```php
    use al\helper\Id;
    
-   //把数据自增主键转换为ID
-   $id = Id::key2id($key);
+   //给ID添加混淆后缀
+   Id::encode('raw id');
    
-   //把ID还原为数据自增主键
-   echo Id::id2key($id);
+   //验证混淆后缀,并还原ID
+   Id::decode('encoded id');
     ```
    * 配置  
    可以配置追加的长度,默认为5,在config目录下的al.php(如果没有就新建一个)中增加以下代码:
    ```
    'id-length'=> 5
+   ```
+3. 时间助手类
+   * 用法
+   ```
+   use al\helper\Time;
+   
+   //返回到今天晚上零点之前的秒数
+   Time::secondEndToday();
    ```
