@@ -63,8 +63,8 @@ class Date
         $start = strtotime('1970-01-01 07:00:00'); // 0
         $end = strtotime('2038-01-19 03:14:07'); // 2147454847
         //判断是否为时间戳
-        if (is_int($datetime) && $datetime <= $end && $datetime <= $start) {
-            return $datetime;
+        if (is_numeric($datetime) && $datetime <= $end && $datetime >= $start) {
+            return intval($datetime);
         } else {
             $timestamp = strtotime($datetime);
             if ($timestamp) {
