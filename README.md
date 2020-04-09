@@ -47,3 +47,18 @@ composer require zjkal/tp-helper
    //返回到今天晚上零点之前的秒数
    Time::secondEndToday();
    ```
+4. 日期助手类
+   * 用法  
+   可以传入任何格式的日期或时间戳
+   ```
+   use al\helper\Date;
+   
+   //判断日期是否为今天
+   Date::isToday('2020-4-10 23:01:11');
+   
+   //判断日期是否为本月
+   Date::isThisMonth(1586451741);
+   
+   //判断日期是否为今年
+   Date::isThisYear('Apr 11, 2020');
+   ```

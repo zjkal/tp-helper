@@ -12,3 +12,9 @@ $datetime = 1586451741;
 var_dump(\al\helper\Date::isToday($datetime));
 var_dump(\al\helper\Date::isThisMonth($datetime));
 var_dump(\al\helper\Date::isThisYear($datetime));
+
+$datetime = 'Apr 11, 2020';
+
+var_dump(\al\helper\Date::isToday($datetime));
+var_dump(\al\helper\Date::isThisMonth($datetime));
+var_dump(\al\helper\Date::isThisYear($datetime));
