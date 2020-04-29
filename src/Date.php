@@ -26,6 +26,23 @@ class Date
         }
     }
 
+    /**
+     * 判断日期是否为本周
+     * @param string|int $datetime
+     * @return bool
+     */
+    public static function isThisWeek($datetime)
+    {
+        $week_start = strtotime(date('Y-m-d 00:00:00', strtotime('this week')));
+        $week_end = strtotime(date('Y-m-d 23:59:59', strtotime('last day next week')));
+        $timestamp = self::toTimestamp($datetime);
+        if ($timestamp >= $week_start && $timestamp <= $week_end) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 
     /**
      * 判断日期是否为本月
