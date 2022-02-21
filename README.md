@@ -89,3 +89,5 @@ return [
     //判断日期是否为今年
     Date::isThisYear('Apr 11, 2020');
     ```
+### 开源协议
+MIT
