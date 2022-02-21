@@ -19,4 +19,24 @@ class Time
         list($y, $m, $d) = explode('-', date('Y-m-d'));
         return mktime(23, 59, 59, $m, $d, $y) - time();
     }
+
+    /**
+     * 返回一天的秒数,传入参数可以返回数天的秒数
+     * @param int $days
+     * @return float|int
+     */
+    public static function secondDay($days = 1)
+    {
+        return 86400 * $days;
+    }
+
+    /**
+     * 返回一周的秒数,传入参数可以返回数周的秒数
+     * @param int $weeks
+     * @return float|int
+     */
+    public static function secondWeek($weeks = 1)
+    {
+        return 604800 * $weeks;
+    }
 }
