@@ -61,6 +61,15 @@ return [
     
     //返回到今天晚上零点之前的秒数
     Time::secondEndToday();
+   
+    //返回1天的秒数
+    Time::secondDay();
+   
+    //返回7天的秒数
+    Time::secondDay(7);
+   
+    //返回4周的秒数
+    Time::secondWeek(4);
     ```
 4. 日期助手类
     * 用法  
@@ -79,5 +88,4 @@ return [
     
     //判断日期是否为今年
     Date::isThisYear('Apr 11, 2020');
-   
-   ```
+    ```
