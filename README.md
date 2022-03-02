@@ -1,6 +1,7 @@
 # tp-helper
 
-a helper library for Thinkphp5&6
+这是一个适用于Thinkphp5和Thinkphp6的助手函数库，作者将长期维护并不断完善使用率比较高的助手函数。
+使用过程中发现BUG或者希望添加其他助手函数，请直接提交Issues或者直接与我联系。
 
 ### 通过Composer导入类库
 
