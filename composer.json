@@ -1,21 +1,22 @@
 {
-    "name": "zjkal/tp-helper",
-    "description": "a helper library for thinkphp6",
-    "type": "library",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "zjkal",
-            "email": "zjkal@qq.com"
-        }
-    ],
-    "minimum-stability": "dev",
-    "require": {
-        "php": ">=7.1"
-    },
-    "autoload": {
-        "psr-4": {
-            "al\\helper\\": "src/"
-        }
+  "name": "zjkal/tp-helper",
+  "description": "a helper library for thinkphp6",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "zjkal",
+      "email": "zjkal@qq.com"
     }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=7.1",
+    "ext-ctype": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "al\\helper\\": "src/"
+    }
+  }
 }
