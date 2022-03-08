@@ -16,7 +16,7 @@ class Date
      * @param string|int $datetime
      * @return bool
      */
-    public static function isToday($datetime)
+    public static function isToday($datetime): bool
     {
         $timestamp = self::toTimestamp($datetime);
         if (date('Y-m-d', $timestamp) == date('Y-m-d')) {
@@ -31,7 +31,7 @@ class Date
      * @param string|int $datetime
      * @return bool
      */
-    public static function isThisWeek($datetime)
+    public static function isThisWeek($datetime): bool
     {
         $week_start = strtotime(date('Y-m-d 00:00:00', strtotime('this week')));
         $week_end = strtotime(date('Y-m-d 23:59:59', strtotime('last day next week')));
@@ -49,7 +49,7 @@ class Date
      * @param string|int $datetime
      * @return bool
      */
-    public static function isThisMonth($datetime)
+    public static function isThisMonth($datetime): bool
     {
         $timestamp = self::toTimestamp($datetime);
         if (date('Y-m', $timestamp) == date('Y-m')) {
@@ -64,7 +64,7 @@ class Date
      * @param string|int $datetime
      * @return bool
      */
-    public static function isThisYear($datetime)
+    public static function isThisYear($datetime): bool
     {
         $timestamp = self::toTimestamp($datetime);
         if (date('Y', $timestamp) == date('Y')) {
@@ -75,7 +75,7 @@ class Date
     }
 
     //将任意时间类型的参数转为时间戳
-    private static function toTimestamp($datetime)
+    private static function toTimestamp($datetime): int
     {
         $start = strtotime('1970-01-01 07:00:00'); // 0
         $end = strtotime('2038-01-19 03:14:07'); // 2147454847
