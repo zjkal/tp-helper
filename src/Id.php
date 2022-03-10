@@ -3,6 +3,8 @@
 
 namespace al\helper;
 
+use Exception;
+
 /**
  * 对数字ID进行追加长度的混淆类
  * Class Id
@@ -16,9 +18,9 @@ class Id
      * 给ID添加混淆后缀
      * @param int $key 数据库自增ID
      * @return int  转换后的ID
-     * @throws \Exception
+     * @throws Exception
      */
-    public static function encode($key)
+    public static function encode(int $key): int
     {
         if (!is_numeric($key)) {
             throw  new \InvalidArgumentException('Param key must be a number');
@@ -36,9 +38,9 @@ class Id
      * 验证混淆后缀,并还原ID
      * @param int $id 转换后的ID
      * @return int 数据库自增ID
-     * @throws \Exception
+     * @throws Exception
      */
-    public static function decode($id)
+    public static function decode(int $id): int
     {
         if (!is_numeric($id)) {
             throw  new \InvalidArgumentException('Param key must be a number');

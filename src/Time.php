@@ -15,7 +15,7 @@ class Time
      * @param $timestamp
      * @return bool
      */
-    public static function is_timestamp($timestamp)
+    public static function is_timestamp($timestamp): bool
     {
         if (!is_int($timestamp)) {
             return false;
@@ -43,7 +43,7 @@ class Time
      * @param int $days
      * @return float|int
      */
-    public static function secondDay($days = 1)
+    public static function secondDay(int $days = 1)
     {
         return 86400 * $days;
     }
@@ -53,7 +53,7 @@ class Time
      * @param int $weeks
      * @return float|int
      */
-    public static function secondWeek($weeks = 1)
+    public static function secondWeek(int $weeks = 1)
     {
         return 604800 * $weeks;
     }
@@ -61,11 +61,11 @@ class Time
     /**
      * 友好的时间显示
      * @param $time
-     * @param $format
-     * @param $max_days
+     * @param string $format
+     * @param int $max_days
      * @return false|string
      */
-    public static function friendly_date($time, $max_days = 365, $format = 'Y年m月d日')
+    public static function friendly_date($time, int $max_days = 365, string $format = 'Y年m月d日')
     {
         if (!$time) {
             return '';

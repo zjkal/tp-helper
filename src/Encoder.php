@@ -17,7 +17,7 @@ class Encoder
      * @param string $data 要加密的字符串
      * @return string 加密后的字符串
      */
-    public static function encode($data)
+    public static function encode(string $data): string
     {
         $key = function_exists('config') ? (config('al.encoder-key') ?: self::$DEFAULT_KEY) : self::$DEFAULT_KEY;
 
@@ -43,8 +43,7 @@ class Encoder
         }
         $base64_str = base64_encode($str);
         $count = substr_count($base64_str, '=');
-        $ret = $a[$count] . rtrim(str_replace('/', '_', str_replace('+', '-', $base64_str)), '=');
-        return $ret;
+        return $a[$count] . rtrim(str_replace('/', '_', str_replace('+', '-', $base64_str)), '=');
     }
 
     /**
@@ -52,7 +51,7 @@ class Encoder
      * @param string $data 加密的字符串
      * @return string 解密后的字符串
      */
-    public static function decode($data)
+    public static function decode(string $data): string
     {
         $key = function_exists('config') ? (config('al.encoder-key') ?: self::$DEFAULT_KEY) : self::$DEFAULT_KEY;
 
