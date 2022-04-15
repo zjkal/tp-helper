@@ -1,6 +1,7 @@
 # tp-helper
 
-这是一个适用于Thinkphp5和Thinkphp6的助手函数库，作者将长期维护并不断完善使用率比较高的助手函数。 使用过程中发现BUG或者希望添加其他助手函数，请直接提交Issues或者直接与我联系。
+这是一个适用于Thinkphp5和Thinkphp6的助手函数库，作者将长期维护并不断完善使用率比较高的助手函数。
+使用过程中发现BUG或者希望添加其他助手函数，请直接提交Issues或者直接与我联系。
 
 ### 通过Composer导入类库
 
@@ -10,25 +11,25 @@ composer require zjkal/tp-helper
 
 ### 配置说明
 
-凡是涉及到配置项的方法, 全部使用Thinkphp的助手函数config获取的,可以在config目录下新建al.php配置文件,也可以在config.php中直接配置,例如:
+凡是涉及到配置项的方法, 全部使用Thinkphp的助手函数config获取的,可以在config目录下新建helper.php配置文件,也可以在config.php中直接配置,例如:
 
 ```
 //config.php
 return [
-    'al.name'=>'value',
+    'helper.name'=>'value',
 ];
 ```
 
 或者
 
 ```
-//al.php
+//helper.php
 return [
     'name'=>'value',
 ];
 ```
 
-原则:确保使用config('al.name')可以访问到
+原则:确保使用config('helper.name')可以访问到
 
 ### 方法说明
 

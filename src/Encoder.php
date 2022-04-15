@@ -19,7 +19,7 @@ class Encoder
      */
     public static function encode(string $data): string
     {
-        $key = function_exists('config') ? (config('al.encoder-key') ?: self::$DEFAULT_KEY) : self::$DEFAULT_KEY;
+        $key = function_exists('config') ? (config('helper.encoder-key') ?: self::$DEFAULT_KEY) : self::$DEFAULT_KEY;
 
         $data = strval($data);
         $key = strval($key);
@@ -53,7 +53,7 @@ class Encoder
      */
     public static function decode(string $data): string
     {
-        $key = function_exists('config') ? (config('al.encoder-key') ?: self::$DEFAULT_KEY) : self::$DEFAULT_KEY;
+        $key = function_exists('config') ? (config('helper.encoder-key') ?: self::$DEFAULT_KEY) : self::$DEFAULT_KEY;
 
         $data = strval($data);
 
