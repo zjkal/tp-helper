@@ -1,7 +1,6 @@
 # tp-helper
 
-这是一个适用于Thinkphp5和Thinkphp6的助手函数库，作者将长期维护并不断完善使用率比较高的助手函数。
-使用过程中发现BUG或者希望添加其他助手函数，请直接提交Issues或者直接与我联系。
+这是一个适用于Thinkphp5和Thinkphp6的助手函数库，作者将长期维护并不断完善使用率比较高的助手函数。 使用过程中发现BUG或者希望添加其他助手函数，请直接提交Issues或者直接与我联系。
 
 ### 通过Composer导入类库
 
@@ -66,7 +65,7 @@ return [
     'id-length'=> 5
     ```
 3. 时间助手类
-    * 用法
+    * 用法(可以传入任何格式的日期或时间戳)
     ```
     use al\helper\Time;
     
@@ -89,24 +88,27 @@ return [
     //第二个参数为多少天以上直接显示为日期格式（默认365天），第三个参数为显示日期的格式，与PHP自带的date函数的格式化规则一致
     Time::friendly_date('2022-3-2 10:15:33');
     Time::friendly_date(1646186290, 365, 'Y-m-d');
-    ```
-4. 日期助手类
-    * 用法  
-      可以传入任何格式的日期或时间戳
-    ```
-    use al\helper\Date;
-    
-    //判断日期是否为今天
-    Date::isToday('2020-4-10 23:01:11');
+    //也可以显示英文
+    Time::friendly_date('2022-3-2 10:15:33',lang:'en');//php>8.0的用法
+    Time::friendly_date('2022-3-2 10:15:33',365,'Y-m-d','en');//php<8.0需要写全参数
+   
+   //判断日期是否为今天
+    Time::isToday('2020-4-10 23:01:11');
     
     //判断日期是否为本周
-    Date::isThisWeek('2020-5-1');
+    Time::isThisWeek('2020-5-1');
     
     //判断日期是否为本月
-    Date::isThisMonth(1586451741);
+    Time::isThisMonth(1586451741);
     
     //判断日期是否为今年
-    Date::isThisYear('Apr 11, 2020');
+    Time::isThisYear('Apr 11, 2020');
+   
+    //计算两个日期相差天数
+    Time::diffDays('2022-4-10 23:01:11','Apr 11, 2020');
+    //如果只传入一个参数,则与当前时间比较
+    Time::diffDays(1586451741);
+   
     ```
 
 ### 开源协议
