@@ -5,7 +5,7 @@
 
 ### 通过Composer导入类库
 
-```
+```bash
 composer require zjkal/tp-helper
 ```
 
@@ -13,7 +13,7 @@ composer require zjkal/tp-helper
 
 凡是涉及到配置项的方法, 全部使用Thinkphp的助手函数config获取的,可以在config目录下新建helper.php配置文件,也可以在config.php中直接配置,例如:
 
-```
+```php
 //config.php
 return [
     'helper.name'=>'value',
@@ -22,7 +22,7 @@ return [
 
 或者
 
-```
+```php
 //helper.php
 return [
     'name'=>'value',
@@ -46,7 +46,7 @@ return [
     ```
     * 配置  
       可以配置加密和解密的秘钥,不配置默认为ykmaiz,例如:
-    ```
+    ```php
     'encoder-key'=> 'ykmaiz'
     ```
 2. 对数字ID进行追加长度的混淆类
@@ -62,7 +62,7 @@ return [
     ```
     * 配置  
       可以配置追加的长度,不配置默认为5,例如:
-    ```
+    ```php
     'id-length'=> 5
     ```
 3. 时间助手类
