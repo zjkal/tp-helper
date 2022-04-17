@@ -12,8 +12,8 @@ class Time
 {
     /**
      * 判断是否为时间戳格式
-     * @param $timestamp
-     * @return bool
+     * @param int|string $timestamp 要判断的字符串
+     * @return bool 如果是时间戳返回True,否则返回False
      */
     public static function is_timestamp($timestamp): bool
     {
@@ -28,7 +28,11 @@ class Time
         }
     }
 
-    //将任意时间类型的参数转为时间戳
+    /**
+     * 将任意时间类型的参数转为时间戳
+     * @param int|string $datetime 要转换为时间戳的字符串或数字
+     * @return int 时间戳
+     */
     public static function toTimestamp($datetime): int
     {
         if (!$datetime) {
@@ -52,7 +56,7 @@ class Time
 
     /**
      * 返回到今天晚上零点之前的秒数
-     * @return false|int
+     * @return false|int 秒数
      */
     public static function secondEndToday()
     {
@@ -62,8 +66,8 @@ class Time
 
     /**
      * 返回一天的秒数,传入参数可以返回数天的秒数
-     * @param int $days
-     * @return float|int
+     * @param int $days 天数,默认为1天
+     * @return float|int 秒数
      */
     public static function secondDay(int $days = 1)
     {
@@ -72,8 +76,8 @@ class Time
 
     /**
      * 返回一周的秒数,传入参数可以返回数周的秒数
-     * @param int $weeks
-     * @return float|int
+     * @param int $weeks 周数,默认为1周
+     * @return float|int 秒数
      */
     public static function secondWeek(int $weeks = 1)
     {
@@ -82,10 +86,11 @@ class Time
 
     /**
      * 友好的时间显示
-     * @param $time
-     * @param string $format
-     * @param int $max_days
-     * @return false|string
+     * @param int|string $time 时间日期的字符串或数字
+     * @param int $max_days 转换格式的最大天数,超过此天数则直接显示日期,默认为365
+     * @param string $format 格式,和date函数格式一致,默认为Y年m月d日
+     * @param string $lang 语言,默认为中文,如果要显示英文传入en即可
+     * @return false|string 转换后的友好时间格式
      */
     public static function friendly_date($time, int $max_days = 365, string $format = 'Y年m月d日', string $lang = 'zh')
     {
@@ -123,8 +128,8 @@ class Time
 
     /**
      * 判断日期是否为今天
-     * @param string|int $datetime
-     * @return bool
+     * @param string|int $datetime 时间日期
+     * @return bool 如果是今天则返回True,否则返回False
      */
     public static function isToday($datetime): bool
     {
@@ -138,8 +143,8 @@ class Time
 
     /**
      * 判断日期是否为本周
-     * @param string|int $datetime
-     * @return bool
+     * @param string|int $datetime 时间日期
+     * @return bool 如果是本周则返回True,否则返回False
      */
     public static function isThisWeek($datetime): bool
     {
@@ -156,8 +161,8 @@ class Time
 
     /**
      * 判断日期是否为本月
-     * @param string|int $datetime
-     * @return bool
+     * @param string|int $datetime 时间日期
+     * @return bool 如果是本月则返回True,否则返回False
      */
     public static function isThisMonth($datetime): bool
     {
@@ -171,8 +176,8 @@ class Time
 
     /**
      * 判断日期是否为今年
-     * @param string|int $datetime
-     * @return bool
+     * @param string|int $datetime 时间日期
+     * @return bool 如果是今年则返回True,否则返回False
      */
     public static function isThisYear($datetime): bool
     {
@@ -186,9 +191,9 @@ class Time
 
     /**
      * 返回两个日期相差天数(如果只传入一个日期,则与当天时间比较)
-     * @param $datetime
-     * @param $new_datetime
-     * @return int
+     * @param int|string $datetime 要计算的时间
+     * @param int|string $new_datetime 要比较的时间,默认为当前时间
+     * @return int 相差天数
      */
     public static function diffDays($datetime, $new_datetime = null): int
     {
