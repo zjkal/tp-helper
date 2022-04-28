@@ -207,4 +207,59 @@ class Time
 
         return date_diff(date_create($datetime), date_create($new_datetime))->days;
     }
+
+    /**
+     * 返回两个日期相差星期数(如果只传入一个日期,则与当天时间比较)
+     * @param int|string $datetime 要计算的时间
+     * @param int|string $new_datetime 要比较的时间,默认为当前时间
+     * @return int 相差星期数
+     */
+    public static function diffWeeks($datetime, $new_datetime = null): int
+    {
+        $datetime = date('Y-m-d', self::toTimestamp($datetime));
+        if ($new_datetime) {
+            $new_datetime = date('Y-m-d', self::toTimestamp($new_datetime));
+        } else {
+            $new_datetime = date('Y-m-d');
+        }
+
+        return date_diff(date_create($datetime), date_create($new_datetime))->days / 7;
+    }
+
+    /**
+     * 返回两个日期相差月数(如果只传入一个日期,则与当天时间比较)
+     * @param int|string $datetime 要计算的时间
+     * @param int|string $new_datetime 要比较的时间,默认为当前时间
+     * @return int 相差月数
+     */
+    public static function diffMonth($datetime, $new_datetime = null): int
+    {
+        $datetime = date('Y-m-d', self::toTimestamp($datetime));
+        if ($new_datetime) {
+            $new_datetime = date('Y-m-d', self::toTimestamp($new_datetime));
+        } else {
+            $new_datetime = date('Y-m-d');
+        }
+
+        $diff = date_diff(date_create($datetime), date_create($new_datetime));
+        return $diff->y * 12 + $diff->m;
+    }
+
+    /**
+     * 返回两个日期相差年数(如果只传入一个日期,则与当前时间比较)
+     * @param int|string $datetime 要计算的时间
+     * @param int|string $new_datetime 要比较的时间,默认为当前时间
+     * @return int 相差年数
+     */
+    public static function diffYears($datetime, $new_datetime = null): int
+    {
+        $datetime = date('Y-m-d', self::toTimestamp($datetime));
+        if ($new_datetime) {
+            $new_datetime = date('Y-m-d', self::toTimestamp($new_datetime));
+        } else {
+            $new_datetime = date('Y-m-d');
+        }
+
+        return date_diff(date_create($datetime), date_create($new_datetime))->y;
+    }
 }

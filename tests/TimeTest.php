@@ -28,7 +28,13 @@ var_dump(\al\helper\Time::isToday($datetime));
 var_dump(\al\helper\Time::isThisMonth($datetime));
 var_dump(\al\helper\Time::isThisYear($datetime));
 var_dump(\al\helper\Time::isThisWeek($datetime));
-
-var_dump(\al\helper\Time::diffDays('2022-4-10 23:01:11', 'Apr 11, 2022')) . PHP_EOL;
-//如果只传入一个参数,则与当前时间比较
+echo '相差天数:';
+var_dump(\al\helper\Time::diffDays('2022-4-10 23:01:11', 'Apr 11, 2020')) . PHP_EOL;
+echo '相差天数:';
 var_dump(\al\helper\Time::diffDays(1586451741)) . PHP_EOL;
+echo '相差年数:';
+var_dump(\al\helper\Time::diffYears(1586451741)) . PHP_EOL;
+echo '相差月数:';
+var_dump(\al\helper\Time::diffMonth(1586451741)) . PHP_EOL;
+echo '相差周数:';
+var_dump(\al\helper\Time::diffWeeks(1586451741)) . PHP_EOL;
