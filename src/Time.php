@@ -112,7 +112,7 @@ class Time
 
         if ($diff_days >= $max_days) {
             return date($format, $time);
-        } elseif ($diff_days >= 3) {
+        } elseif ($diff_days >= 2) {
             return $diff_days . ($lang == 'zh' ? '天前' : ' days ago');
         } elseif ($diff_days >= 1) {
             return $lang == 'zh' ? '昨天' : 'yesterday';
