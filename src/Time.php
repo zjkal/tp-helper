@@ -262,4 +262,33 @@ class Time
 
         return date_diff(date_create($datetime), date_create($new_datetime))->y;
     }
+
+    /**
+     * 返回传入时间的N天前的时间戳,默认为1天前
+     * @param int|string $datetime 任意格式时间字符串或时间戳
+     * @param int $days 天数(默认为1天)
+     * @return int 时间戳
+     */
+    public static function beforeDays($datetime, int $days = 1): int
+    {
+        $time = self::toTimestamp($datetime);
+        return $time - self::secondDay($days);
+    }
+
+    /**
+     * 返回传入时间的N天后的时间戳,默认为1天后
+     * @param int|string $datetime 任意格式时间字符串或时间戳
+     * @param int $days 天数(默认为1天)
+     * @return int 时间戳
+     */
+    public static function afterDays($datetime, int $days = 1): int
+    {
+        $time = self::toTimestamp($datetime);
+        return $time + self::secondDay($days);
+    }
+
+    public static function beforeWeeks($datetime, int $weeks = 1): int
+    {
+
+    }
 }
