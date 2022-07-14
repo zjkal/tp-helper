@@ -1,6 +1,6 @@
 {
   "name": "zjkal/tp-helper",
-  "description": "a helper library for thinkphp6",
+  "description": "一个Thinkphp5&6的助手类库,最好用的是时间助手类, 所有方法都可以传入任意类型的时间日期格式或者时间戳.",
   "type": "library",
   "license": "MIT",
   "authors": [
