@@ -3,6 +3,8 @@
 
 namespace al\helper;
 
+use DateTime;
+
 /**
  * 时间助手类
  * Class Time
@@ -193,7 +195,7 @@ class Time
     /**
      * 返回两个日期相差天数(如果只传入一个日期,则与当天时间比较)
      * @param int|string $datetime 要计算的时间
-     * @param int|string $new_datetime 要比较的时间,默认为当前时间
+     * @param int|string $new_datetime 要比较的时间(默认为当前时间)
      * @return int 相差天数
      */
     public static function diffDays($datetime, $new_datetime = null): int
@@ -211,7 +213,7 @@ class Time
     /**
      * 返回两个日期相差星期数(如果只传入一个日期,则与当天时间比较)
      * @param int|string $datetime 要计算的时间
-     * @param int|string $new_datetime 要比较的时间,默认为当前时间
+     * @param int|string $new_datetime 要比较的时间(默认为当前时间)
      * @return int 相差星期数
      */
     public static function diffWeeks($datetime, $new_datetime = null): int
@@ -229,7 +231,7 @@ class Time
     /**
      * 返回两个日期相差月数(如果只传入一个日期,则与当天时间比较)
      * @param int|string $datetime 要计算的时间
-     * @param int|string $new_datetime 要比较的时间,默认为当前时间
+     * @param int|string $new_datetime 要比较的时间(默认为当前时间)
      * @return int 相差月数
      */
     public static function diffMonth($datetime, $new_datetime = null): int
@@ -248,7 +250,7 @@ class Time
     /**
      * 返回两个日期相差年数(如果只传入一个日期,则与当前时间比较)
      * @param int|string $datetime 要计算的时间
-     * @param int|string $new_datetime 要比较的时间,默认为当前时间
+     * @param int|string $new_datetime 要比较的时间(默认为当前时间)
      * @return int 相差年数
      */
     public static function diffYears($datetime, $new_datetime = null): int
@@ -264,31 +266,184 @@ class Time
     }
 
     /**
-     * 返回传入时间的N天前的时间戳,默认为1天前
-     * @param int|string $datetime 任意格式时间字符串或时间戳
-     * @param int $days 天数(默认为1天)
+     * 返回传入时间的N分钟前的时间戳
+     * @param int|string $datetime 任意格式时间字符串或时间戳(默认为当前时间)
+     * @param int $minute 分钟数(默认为1分钟)
      * @return int 时间戳
      */
-    public static function beforeDays($datetime, int $days = 1): int
+    public static function beforeMinute($datetime = null, int $minute = 1): int
     {
-        $time = self::toTimestamp($datetime);
-        return $time - self::secondDay($days);
+        $date = new DateTime();
+        if ($datetime !== null) {
+            $date->setTimestamp(self::toTimestamp($datetime));
+        }
+        return $date->modify(sprintf('-%d minute', $minute))->getTimestamp();
     }
 
     /**
-     * 返回传入时间的N天后的时间戳,默认为1天后
-     * @param int|string $datetime 任意格式时间字符串或时间戳
-     * @param int $days 天数(默认为1天)
+     * 返回传入时间的N分钟后的时间戳
+     * @param int|string $datetime 任意格式时间字符串或时间戳(默认为当前时间)
+     * @param int $minute 分钟数(默认为1分钟)
      * @return int 时间戳
      */
-    public static function afterDays($datetime, int $days = 1): int
+    public static function afterMinute($datetime = null, int $minute = 1): int
     {
-        $time = self::toTimestamp($datetime);
-        return $time + self::secondDay($days);
+        $date = new DateTime();
+        if ($datetime !== null) {
+            $date->setTimestamp(self::toTimestamp($datetime));
+        }
+        return $date->modify(sprintf('+%d minute', $minute))->getTimestamp();
     }
 
-    public static function beforeWeeks($datetime, int $weeks = 1): int
-    {
 
+    /**
+     * 返回传入时间的N小时前的时间戳
+     * @param int|string $datetime 任意格式时间字符串或时间戳(默认为当前时间)
+     * @param int $hour 小时数(默认为1小时)
+     * @return int 时间戳
+     */
+    public static function beforeHour($datetime = null, int $hour = 1): int
+    {
+        $date = new DateTime();
+        if ($datetime !== null) {
+            $date->setTimestamp(self::toTimestamp($datetime));
+        }
+        return $date->modify(sprintf('-%d hour', $hour))->getTimestamp();
+    }
+
+    /**
+     * 返回传入时间的N小时后的时间戳
+     * @param int|string $datetime 任意格式时间字符串或时间戳(默认为当前时间)
+     * @param int $hour 小时数(默认为1小时)
+     * @return int 时间戳
+     */
+    public static function afterHour($datetime = null, int $hour = 1): int
+    {
+        $date = new DateTime();
+        if ($datetime !== null) {
+            $date->setTimestamp(self::toTimestamp($datetime));
+        }
+        return $date->modify(sprintf('+%d hour', $hour))->getTimestamp();
+    }
+
+
+    /**
+     * 返回传入时间的N天前的时间戳
+     * @param int|string $datetime 任意格式时间字符串或时间戳(默认为当前时间)
+     * @param int $day 天数(默认为1天)
+     * @return int 时间戳
+     */
+    public static function beforeDay($datetime = null, int $day = 1): int
+    {
+        $date = new DateTime();
+        if ($datetime !== null) {
+            $date->setTimestamp(self::toTimestamp($datetime));
+        }
+        return $date->modify(sprintf('-%d day', $day))->getTimestamp();
+    }
+
+    /**
+     * 返回传入时间的N天后的时间戳
+     * @param int|string $datetime 任意格式时间字符串或时间戳(默认为当前时间)
+     * @param int $day 天数(默认为1天)
+     * @return int 时间戳
+     */
+    public static function afterDay($datetime = null, int $day = 1): int
+    {
+        $date = new DateTime();
+        if ($datetime !== null) {
+            $date->setTimestamp(self::toTimestamp($datetime));
+        }
+        return $date->modify(sprintf('+%d day', $day))->getTimestamp();
+    }
+
+    /**
+     * 返回传入时间的N星期前的时间戳
+     * @param int|string $datetime 任意格式时间字符串或时间戳(默认为当前时间)
+     * @param int $week 星期数(默认为1星期)
+     * @return int 时间戳
+     */
+    public static function beforeWeek($datetime = null, int $week = 1): int
+    {
+        $date = new DateTime();
+        if ($datetime !== null) {
+            $date->setTimestamp(self::toTimestamp($datetime));
+        }
+        return $date->modify(sprintf('-%d week', $week))->getTimestamp();
+    }
+
+    /**
+     * 返回传入时间的N星期后的时间戳
+     * @param int|string $datetime 任意格式时间字符串或时间戳(默认为当前时间)
+     * @param int $week 星期数(默认为1星期)
+     * @return int 时间戳
+     */
+    public static function afterWeek($datetime = null, int $week = 1): int
+    {
+        $date = new DateTime();
+        if ($datetime !== null) {
+            $date->setTimestamp(self::toTimestamp($datetime));
+        }
+        return $date->modify(sprintf('+%d week', $week))->getTimestamp();
+    }
+
+    /**
+     * 返回传入时间的N月前的时间戳
+     * @param int|string $datetime 任意格式时间字符串或时间戳(默认为当前时间)
+     * @param int $month 月数(默认为1个月)
+     * @return int 时间戳
+     */
+    public static function beforeMonth($datetime = null, int $month = 1): int
+    {
+        $date = new DateTime();
+        if ($datetime !== null) {
+            $date->setTimestamp(self::toTimestamp($datetime));
+        }
+        return $date->modify(sprintf('-%d month', $month))->getTimestamp();
+    }
+
+    /**
+     * 返回传入时间的N月后的时间戳
+     * @param int|string $datetime 任意格式时间字符串或时间戳(默认为当前时间)
+     * @param int $month 月数(默认为1个月)
+     * @return int 时间戳
+     */
+    public static function afterMonth($datetime = null, int $month = 1): int
+    {
+        $date = new DateTime();
+        if ($datetime !== null) {
+            $date->setTimestamp(self::toTimestamp($datetime));
+        }
+        return $date->modify(sprintf('+%d month', $month))->getTimestamp();
+    }
+
+    /**
+     * 返回传入时间的N年前的时间戳
+     * @param int|string $datetime 任意格式时间字符串或时间戳(默认为当前时间)
+     * @param int $year 年数(默认为1年)
+     * @return int 时间戳
+     */
+    public static function beforeYear($datetime = null, int $year = 1): int
+    {
+        $date = new DateTime();
+        if ($datetime !== null) {
+            $date->setTimestamp(self::toTimestamp($datetime));
+        }
+        return $date->modify(sprintf('-%d year', $year))->getTimestamp();
+    }
+
+    /**
+     * 返回传入时间的N年后的时间戳
+     * @param int|string $datetime 任意格式时间字符串或时间戳(默认为当前时间)
+     * @param int $year 年数(默认为1年)
+     * @return int 时间戳
+     */
+    public static function afterYear($datetime = null, int $year = 1): int
+    {
+        $date = new DateTime();
+        if ($datetime !== null) {
+            $date->setTimestamp(self::toTimestamp($datetime));
+        }
+        return $date->modify(sprintf('+%d year', $year))->getTimestamp();
     }
 }
