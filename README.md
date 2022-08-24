@@ -1,4 +1,4 @@
-# 为了更方便大家使用,本人决定将时间助手函数独立为一个composer类库
+# 为了更方便大家使用,决定将时间助手函数独立为一个composer类库
 
 # [https://github.com/zjkal/time-helper](https://github.com/zjkal/time-helper)
 
@@ -6,7 +6,7 @@
 composer require zjkal/time-helper
 ```
 
-# 该类库的时间助手也不在更新,请大家转用新的类库,用法一致.
+### 请大家及时更换composer配置
 
 # tp-helper
 
