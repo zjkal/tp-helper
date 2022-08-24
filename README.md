@@ -1,3 +1,13 @@
+# 为了更方便大家使用,本人决定将时间助手函数独立为一个composer类库
+
+# [https://github.com/zjkal/time-helper](https://github.com/zjkal/time-helper)
+
+```bash
+composer require zjkal/time-helper
+```
+
+# 该类库的时间助手也不在更新,请大家转用新的类库,用法一致.
+
 # tp-helper
 
 这是一个适用于Thinkphp5和Thinkphp6的助手函数库，作者将长期维护并不断完善使用率比较高的助手函数。
