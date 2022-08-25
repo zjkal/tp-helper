@@ -7,7 +7,9 @@ composer require zjkal/time-helper
 ```
 
 ### 请大家及时更换composer配置
-
+- - -
+分割线分割线分割线分割线分割线分割线分割线分割线分割线分割线分割线分割线分割线分割线分割线分割线
+- - -
 # tp-helper
 
 这是一个适用于Thinkphp5和Thinkphp6的助手函数库，作者将长期维护并不断完善使用率比较高的助手函数。
